@@ -29,10 +29,10 @@
 							de Clientes</a></li>
 					<li class="nav-item"><a class="nav-link active" th:href="@{nuevo}">Nuevo</a></li>
 				</ul>
-				<form class="d-flex" th:action="@{./buscarCliente}"
-					th:object="${cliente}" method="POST">
+				<form class="d-flex" th:action="@{./buscarCliente}" method="POST">
 					<input class="form-control me-2" type="search"
-						placeholder="Introduce nombre" name="nombre">
+						placeholder="Introduce nombre" name="keyword" th:value="${keyword}"
+						required />
 					<button class="btn btn-outline-success" type="submit">Buscar</button>
 				</form>
 			</div>
