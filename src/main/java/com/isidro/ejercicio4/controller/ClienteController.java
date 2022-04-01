@@ -7,9 +7,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +36,6 @@ public class ClienteController {
 		
 		//ClienteEntity cliente = new ClienteEntity((long) 1, "Isidro", "Linares", new Date(), "123456789");
 		//clienteService.insertarGuardar(cliente);
-		
 		
 		// Obtener listado de clientes
 		List<ClienteEntity> listaClientes = clienteService.mostrarTodo();
@@ -61,9 +62,9 @@ public class ClienteController {
 		return "redirect:/clientes";
 	}
 	
-	@RequestMapping(path = "/eliminar/{id}", method = RequestMethod.GET)
-	public String eliminarCliente(@PathVariable Long id) throws Exception {
-		
+	@GetMapping(value = "/eliminar/{id}")
+	public String deletePost(@PathVariable Long id) throws Exception {
+
 		clienteService.eliminar(id);
 
 		return "redirect:/clientes";

@@ -34,16 +34,16 @@
 							<td scope="row" th:text="${cliente.nombre}" />
 							<td scope="row" th:text="${cliente.apellidos}" />
 							<td scope="row" th:text="${cliente.dni}" />
-							<td scope="row" th:hidden="${showCustomersViewDropInd}">
-								
+							<td scope="row">
+								<a th:href="@{/eliminar/{id}(id=${cliente.id})}"
+								id="btnEliminarCliente" class="btn btn-danger" role="button">Eliminar</a>
 							</td>
 						</tr>
 					</th:block>
 				</tbody>
 			</table>
 			<!-- Botones -->
-			<a class="btn btn-primary" th:href="@{clientes}" id="aBtnReturn"
-				role="button">Volver</a> <a class="btn btn-primary"
+			<a class="btn btn-primary"
 				th:href="@{nuevo}" id="aBtnNew" role="button">Nuevo</a>
 		</div>
 	</div>
