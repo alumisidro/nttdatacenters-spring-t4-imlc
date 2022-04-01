@@ -47,6 +47,7 @@ public class ClienteController {
 		return "mostrarListaClientesView";
 	}
 	
+	// Formulario de nuevo cliente
 	@GetMapping("/nuevo")
 	public String nuevoCliente(Model modelAndView) {
 				
@@ -54,6 +55,7 @@ public class ClienteController {
 		return "nuevoClienteView";
 	}
 	
+	// Formulario crearCliente
 	@PostMapping("/crearCliente")
 	public String crearCliente(@Valid @ModelAttribute("cliente") ClienteEntity nuevoCliente, Model model, BindingResult br) {
 
