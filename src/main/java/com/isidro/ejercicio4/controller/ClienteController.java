@@ -55,20 +55,28 @@ public class ClienteController {
 		return "nuevoClienteView";
 	}
 	
-	// Formulario crearCliente
+	// Inserción de cliente
 	@PostMapping("/crearCliente")
 	public String crearCliente(@Valid @ModelAttribute("cliente") ClienteEntity nuevoCliente, Model model, BindingResult br) {
 
+		// Insertar cliente
 		clienteService.insertarGuardar(nuevoCliente);
 
+		// Redirigir a listado
 		return "redirect:/clientes";
 	}
 	
+	// Eliminar por GET
+	// ¿Habría que cambiarlo por POST? ¿Controlar CSRF? Pues ni idea.
 	@GetMapping(value = "/eliminar/{id}")
 	public String deletePost(@PathVariable Long id) throws Exception {
 
+		// ¿Control csrf?
+		
+		// Eliminar
 		clienteService.eliminar(id);
 
+		// Redirigir a listado
 		return "redirect:/clientes";
 	}
 	
